@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Logs
+logs/
+*.log
+
+# Email credentials (IMPORTANT!)
+# Uncomment the line below if you want to keep credentials in a separate file
+# emails.py
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+test_email.py
+

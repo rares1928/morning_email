@@ -1,0 +1,5 @@
+# Python dependencies for the Morning Email System
+# Install with: pip3 install -r requirements.txt
+
+requests>=2.31.0
+
