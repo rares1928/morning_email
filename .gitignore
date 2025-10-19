@@ -29,3 +29,8 @@ Thumbs.db
 # Testing
 test_email.py
 
+#playground
+playground.py
+
+emails.py
+.cache.sqlite
