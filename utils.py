@@ -55,7 +55,7 @@ def send_email(recipient_email, recipient_name, email_content, sender_email, sen
         return False
 
 
-def build_email_body(recipient_name="Boss", weather_info=True, random_quote=True, random_fact=True):
+def build_email_body(recipient_name="Boss", weather_info=True, random_quote=True, random_fact=True, quote_data=None, fact_text=None):
     """
     Build the HTML email body with optional weather info, quote, and fact.
     
@@ -64,6 +64,8 @@ def build_email_body(recipient_name="Boss", weather_info=True, random_quote=True
         weather_info (bool): Whether to include weather information
         random_quote (bool): Whether to include a random quote
         random_fact (bool): Whether to include a random fact
+        quote_data (dict): Pre-fetched quote data (optional, will fetch if None)
+        fact_text (str): Pre-fetched fact text (optional, will fetch if None)
     
     Returns:
         str: HTML formatted email body
@@ -146,7 +148,9 @@ def build_email_body(recipient_name="Boss", weather_info=True, random_quote=True
     # Add random quote if requested
     if random_quote:
         try:
-            quote_data = get_random_quote()
+            # Use provided quote_data or fetch a new one
+            if quote_data is None:
+                quote_data = get_random_quote()
             html_body += f"""
             <div class="section">
                 <h2>💭 Daily Quote</h2>
@@ -165,7 +169,9 @@ def build_email_body(recipient_name="Boss", weather_info=True, random_quote=True
     # Add random fact if requested
     if random_fact:
         try:
-            fact_text = get_random_fact()
+            # Use provided fact_text or fetch a new one
+            if fact_text is None:
+                fact_text = get_random_fact()
             html_body += f"""
             <div class="section">
                 <h2>🤓 Did You Know?</h2>
